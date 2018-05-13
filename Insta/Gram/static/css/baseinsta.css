@@ -3,13 +3,19 @@ h1
   color: blue;
 }
 nav{
-  font-family: 'Pangolin', cursive;
+font-family: 'Pacifico', cursive;
+background-color: blue;
 }
 body{
-  font-family: 'Pangolin', cursive;
-  background-color: grey;
-  background-image: url(./static/images/hi.jpg);
+font-family: 'Gloria Hallelujah', cursive;
+  /* background-color: grey; */
 }
 .login{
   background-color: blue;
+}
+#insta{
+  font-family: 'Pacifico', cursive;
+}
+.navbar navbar-inverse{
+  color: blue;
 }
