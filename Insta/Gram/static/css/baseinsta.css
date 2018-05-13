@@ -1,0 +1,15 @@
+h1
+{
+  color: blue;
+}
+nav{
+  font-family: 'Pangolin', cursive;
+}
+body{
+  font-family: 'Pangolin', cursive;
+  background-color: grey;
+  background-image: url(./static/images/hi.jpg);
+}
+.login{
+  background-color: blue;
+}
