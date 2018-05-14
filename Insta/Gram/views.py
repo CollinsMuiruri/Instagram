@@ -12,13 +12,26 @@ def latest_images(request):
     date = dt.date.today()
     news = Image.todays_news()
 
-    return render(request, 'allofinsta/base.html', {"date": date,})
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['your_name']
+            email = form.cleaned_data['email']
+            recipient = NewsLetterRecipients(name = name, email = email)
+            recipient.save()
+            send_welcome_email(name,email)
+
+            HttpResponseRedirect('newsToday')
+
+    else:
+        form = NewsLetterForm()
+    return render(request, 'all-news/today-news.html', {"date": date,"news":news,"letterform":form})
 
 def search_results(request):
+    searched_ = Image.search_by_title(search_term)
 
     if 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
-        searched_images = Image.search_by_title(search_term)
         message = f"{search_term}"
 
         return render(request, 'allofinsta/search.html',{"message":message,"articles": searched_images})
