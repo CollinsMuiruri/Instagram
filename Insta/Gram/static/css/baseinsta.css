@@ -1,21 +1,21 @@
 h1
 {
-  color: blue;
+  color: white;
 }
 nav{
 font-family: 'Pacifico', cursive;
-background-color: blue;
+background-color: white;
 }
 body{
 font-family: 'Gloria Hallelujah', cursive;
-  /* background-color: grey; */
+  background-color: white;
 }
 .login{
-  background-color: blue;
+  background-color: white;
 }
 #insta{
   font-family: 'Pacifico', cursive;
 }
 .navbar navbar-inverse{
-  color: blue;
+  background-color: white;
 }

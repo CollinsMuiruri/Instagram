@@ -15,15 +15,26 @@ class profile(models.Model):
     Bio = models.CharField(max_length =30)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.profile_photo
+
+
 
 class Image(models.Model):
     image = models.ImageField(upload_to = 'images/')
     image_name = models.CharField(max_length =60)
     caption = HTMLField()
     editor = models.ForeignKey(User, on_delete=models.CASCADE)
-    tag = models.ManyToManyField(tag)
     pub_date = models.DateTimeField(auto_now_add=True)
-    profile = models.ForeignKey(profile)
+
+    def __str__(self):
+        return self.image
+
+    def save_editor(self):
+        self.save()
+    class Meta:
+        ordering = ['image']
+
 
     @classmethod
     def todays_news(cls):
