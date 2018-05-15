@@ -9,6 +9,7 @@ urlpatterns=[
     url(r'^(?P<id>\d+)/$',views.image_detail,name = 'detail'),
     url(r'^tinymce/',include('tinymce.urls')),
     url(r'^latest/(?P<image_id>\d+)',views.image,name ='home'),
+    url(r'^profile/(?P<profile_id>[-\w]+)/$', views.profile, name='profiles'),
     url(r'^new/image/$', views.new_image, name ='new-image'),
 ]
 if settings.DEBUG:

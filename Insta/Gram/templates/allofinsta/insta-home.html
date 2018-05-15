@@ -31,11 +31,13 @@
 
   <style>
 .profile{
-  border-radius: 50%;
+  border-radius:50%;
+  width: 50px !important;
+  height: 50px !important;
 }
 </style>
-<img src="{{images_item.image.url}}" class="profile" alt="Avatar" style="width 40px"></a>
   <div class="w3-card-4" style="background-color:white;margin-left:18%;margin-right:28%;opacity:0.9;margin-top:6%;">
+    <img src="{{images_item.image.url}}" class="profile" alt="Avatar" style="width 40px"></a>
 
     <a href="{% url 'home' image_id=images_item.id %}"><img src="{{images_item.image.url}}" class="img-responsive " alt="Image" style="width:100%"></a>
     <p>{{images_item.image.caption}}</p>

@@ -10,14 +10,16 @@ class tag(models.Model):
     def __str__(self):
         return self.name
 
-class profile(models.Model):
+class Profile(models.Model):
     profile_photo = models.ImageField(upload_to ='images/')
     Bio = models.CharField(max_length =30)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.profile_photo
+        return self.user.username
 
+    def delete_profile(self):
+        self.delete()
 
 
 class Image(models.Model):
@@ -37,7 +39,7 @@ class Image(models.Model):
 
 
     @classmethod
-    def todays_news(cls):
+    def todays_images(cls):
         today = dt.date.today()
         news = cls.objects.filter(pub_date__date = today)
         return news
