@@ -44,7 +44,6 @@ def search_results(request):
 
 @login_required(login_url='/accounts/login/')
 def image_detail(request,id):
-    # return HttpResponse(slug)
     image = Image.objects.filter(id = id)
     return render(request,'allofinsta/home.html',{'image':image})
 

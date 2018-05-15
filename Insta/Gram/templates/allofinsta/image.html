@@ -5,16 +5,16 @@
 <div class="container">
 
     <div class="row">
-      <img src="{{article.article_image.url}}" class="img-responsive" alt="">
+      <img src="{{image.article_image.url}}" class="img-responsive" alt="">
     </div>
 
     <div class="row">
-      <h1 class="text-center">{{image.title}}</h1>
+      <h1 class="text-center">{{image.caption}}</h1>
     </div>
 
     <div class="row">
       {% autoescape on %}
-      <p>{{image.post}}</p>
+      <p>{{image.image_name}}</p>
       {% endautoescape %}
     </div>
 

@@ -37,6 +37,14 @@ class Image(models.Model):
     class Meta:
         ordering = ['image']
 
+    def delete_profile(self):
+        self.delete()
+
+
+    def delete_profile(self):
+        self.change()
+
+
 
     @classmethod
     def todays_images(cls):

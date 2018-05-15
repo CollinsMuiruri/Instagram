@@ -6,7 +6,7 @@ from . import views
 urlpatterns=[
     url(r'^$',views.latest_images,name='latest'),
     url(r'^search/', views.search_results, name='search_results'),
-    url(r'^(?P<id>\d+)/$',views.image_detail,name = 'detail'),
+    url(r'^home/(?P<id>[-\w]+)/$',views.image_detail,name = 'detail'),
     url(r'^tinymce/',include('tinymce.urls')),
     url(r'^latest/(?P<image_id>\d+)',views.image,name ='home'),
     url(r'^profile/(?P<profile_id>[-\w]+)/$', views.profile, name='profiles'),
