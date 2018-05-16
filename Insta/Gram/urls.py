@@ -12,6 +12,7 @@ urlpatterns=[
     url(r'^profile/(?P<profile_id>[-\w]+)/$', views.profile, name='profiles'),
     url(r'^new/image/$', views.new_image, name ='new-image'),
     url(r'^(?P<id>\d+)/$',views.after_detail,name = 'after'),
+    url('create/',views.post,name ='post'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

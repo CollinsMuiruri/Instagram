@@ -4,10 +4,11 @@
 {% block content %}
 
 <div class="container">
+  <div class="col-xs-4 col-sm-6 col-md-3 mt-6">
     {% if profile.profile_pic %}
         <div class="row">
                 <div class="col-md-3">
-                    <img src="{{profile.profile_pic.url | safe}}" class="img-fluid rounded" alt="">
+                    <img src="{{profile.profile_pic.url | safe}}" class="img-fluid rounded" style="width:100%">
                 </div>
             <div class="col-md-9">
                 <div>
@@ -26,7 +27,7 @@
     {% else %}
             <div class="row">
                     <div class="col-md-3">
-                        <img src="https://i0.wp.com/www.thisblogrules.com/wp-content/uploads/2010/02/batman-for-facebook.jpg?resize=250%2C280" class="img-fluid rounded" alt="">
+                        <img src="https://www.shareicon.net/instagram-follower-user-profile-886412" class="img-fluid rounded" alt="">
                     </div>
                 <div class="col-md-9">
                     <div>
@@ -48,7 +49,7 @@
         </div>
         {%endif%}
         {% for profiles in profiles %}
-    <div class="this1 col-md-4">
+    <div>
     <div class="card mb-3">
         <img class="card-img-top img-fluid" src="{{profiles.image.url}}" alt="Card image cap">
         <div class="card-body">
@@ -62,6 +63,7 @@
       </div>
     </div>
     {% endfor %}
+</div>
 </div>
     </div>
 

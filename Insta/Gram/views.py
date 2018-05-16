@@ -91,38 +91,28 @@ def after_detail(request,id):
     image = Image.objects.filter(id = id).all()
     return render(request,'allofinsta/after.html',{'image':image})
 
-# @login_required(login_url='/accounts/login/')
-# def profile(request):
-#     test = 'Profile route Working'
-#     current_user = request.user
-#     images = Image.objects.filter(creator=request.user)
-#     profiles = Profile.objects.filter(user=request.user)
-#     content = {
-#         "test": test,
-#         "current_user": current_user,
-#         "images": images,
-#         "profiles": profiles
-#     }
-#     return render(request, 'profiles/profile.html', content)
-#
-# @login_required(login_url='/accounts/login/')
-# @transaction.atomic
-# def add_profile(request):
-#     test = 'Edit profile route working'
-#     current_user = request.user
-#     user_profile = Profile.objects.filter(user_id=current_user)
-#     if request.method == 'POST':
-#         form = ProfileForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             user_profile = form.save(commit=False)
-#             user_profile.user = current_user
-#             user_profile.save()
-#             return redirect('insta-home.html')
-#     else:
-#         form = ProfileForm(instance=request.user)
-#
-#         content = {
-#             "test": test,
-#             "form": form,
-#         }
-#         return render(request, 'profiles/edit-profile.html', content)
+
+
+@login_required(login_url='/accounts/register')
+def post(request):
+    current_user = request.user
+    profile= request.user.profile
+    if request.method == 'POST':
+
+        form = ImagePost(request.POST, request.FILES)
+
+        if form.is_valid:
+            image = form.save(commit=False)
+            image.user = current_user
+            image.profile = profile
+            image.save()
+            return redirect('profiles', current_user.username)
+    else:
+        form = ImagePost()
+
+    title = "New Post"
+    content = {
+        "form":form,
+        "title":title
+    }
+    return render(request,'post.html', content)
