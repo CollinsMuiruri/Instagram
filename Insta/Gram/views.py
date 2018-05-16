@@ -43,9 +43,10 @@ def search_results(request):
         return render(request, 'allofinsta/search.html',{"message":message})
 
 @login_required(login_url='/accounts/login/')
-def image_detail(request,id):
-    image = Image.objects.filter(id = id)
-    return render(request,'allofinsta/home.html',{'image':image})
+def image_detail(request, id):
+    test='test'
+    image = Image.objects.get(id = id)
+    return render(request,'allofinsta/home.html',{'image':image, 'test':test})
 
 @login_required(login_url='/accounts/login/')
 def image(request,image_id):
@@ -85,7 +86,10 @@ def profile(request, profile_id):
     }
     return render(request,"profiles/profile.html", content)
 
-
+def after_detail(request,id):
+    # return HttpResponse(slug)
+    image = Image.objects.filter(id = id).all()
+    return render(request,'allofinsta/after.html',{'image':image})
 
 # @login_required(login_url='/accounts/login/')
 # def profile(request):
